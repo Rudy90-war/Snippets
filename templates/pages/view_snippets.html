@@ -38,6 +38,8 @@
                         <td><a href="{% url "snippet-detail" snippet.id %}">{{ snippet.name }}</a>
                         <a href="{% url "snippet-delete" snippet.id %}">
                             <i style="color: red;" class="fa-solid fa-trash"></i></a>
+                        <a href="{% url "snippet-edit" snippet.id %}">
+                            <i style="color: red;" class="fas fa-edit"></i></a>
                         </td>
 
                         </td>
