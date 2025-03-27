@@ -27,6 +27,8 @@
                         <th scope="col">ID</th>
                         <th scope="col">Название</th>
                         <th scope="col">Дата создания</th>
+                        <th scope="col">Удалить</th>
+                        <th scope="col">Кнопка</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -35,6 +37,14 @@
                         <td scope="row">{{ snippet.id }}</td>
                         <td><a href="{% url "snippet-detail" snippet.id %}">{{ snippet.name }}</a></td>
                         <td>{{ snippet.creation_date | date:"Y-m-d H:i:s"}}</td>
+                        <td><a href="{% url "snippet-delete" snippet.id %}">Удалить</a></td>
+                    <td>
+                        <form action= "{% url "snippet-delete" snippet.id %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    
+                    
                     </tr>
                     {% endfor %}
                     
