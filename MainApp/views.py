@@ -52,7 +52,7 @@ def snippet_edit(request, snippet_id: int):
 
 
 def snippet_delete(request, snippet_id: int):
-    if request.method == "POST":
+    if request.method == "POST" or request.method == "GET":
         snippet = get_object_or_404(Snippet, id=snippet_id)
         snippet.delete()
     return redirect("snippets-list")
