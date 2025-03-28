@@ -59,19 +59,17 @@ def snippet_edit(request, snippet_id: int):
                'snippet': snippet,
                "type": "edit" 
                }
-        return render(request, 'pages/add_snippet.html', context)
+        return render(request, 'pages/snippet_detail.html', context)
     
     #Получаем данные из формы и на их основе создаем новый снипет в БД
 
     if request.method == "POST":
-       data_form = request.POST
-       snippet.name = data_form["name"]
-       snippet.lang = data_form["lang"]
-       snippet.name = data_form["name"]
-       snippet.creation_date = data_form["Creation_date"]
-       snippet.save()
-            return redirect("snippets-list")
-        return render(request, 'pages/add_snippet.html', {'form': form})  
+        data_form = request.POST
+        snippet.name = data_form["name"]
+        snippet.code = data_form["code"]
+        snippet.save()
+        return redirect("snippets-list")
+        
 
 
 
